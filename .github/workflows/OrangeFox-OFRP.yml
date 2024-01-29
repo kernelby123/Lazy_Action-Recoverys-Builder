@@ -11,6 +11,11 @@ on:
         options:
         - 12.1
         - 11.0
+        - 10.0
+        - 9.0
+        - 8.1
+        - 7.1
+        - 6.0
       DEVICE_TREE:
         description: 'Custom Recovery Tree'
         required: true
@@ -75,15 +80,21 @@ jobs:
         sudo bash setup/android_build_env.sh
       
     - name: Set-up Manifest
-      if: github.event.inputs.MANIFEST_BRANCH == '11.0' || github.event.inputs.MANIFEST_BRANCH == '12.1'
       run: |
         mkdir -p ${GITHUB_WORKSPACE}/OrangeFox
         cd ${GITHUB_WORKSPACE}/OrangeFox
         git config --global user.name "lazycodebuilder"
         git config --global user.email "154446636+lazycodebuilder@users.noreply.github.com"
         git clone https://gitlab.com/OrangeFox/sync.git
-        cd sync
-        ./orangefox_sync.sh --branch ${{ github.event.inputs.MANIFEST_BRANCH }} --path ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
+        if [ ${{ github.event.inputs.MANIFEST_BRANCH }} == '11.0' ] || [ ${{ github.event.inputs.MANIFEST_BRANCH }} == '12.1' ]; then
+           echo "Sync fox_${{ github.event.inputs.MANIFEST_BRANCH }} branche"
+            cd sync
+            ./orangefox_sync.sh --branch ${{ github.event.inputs.MANIFEST_BRANCH }} --path ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
+        else
+            echo "Sync legacy fox_${{ github.event.inputs.MANIFEST_BRANCH }} branche"
+            cd sync/legacy
+            ./orangefox_sync_legacy.sh --branch ${{ github.event.inputs.MANIFEST_BRANCH }} --path ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
+        fi
 
     - name: Clone Device Tree
       run: |

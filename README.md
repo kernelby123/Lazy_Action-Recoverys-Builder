@@ -1,4 +1,4 @@
-## Action Recovery Builder |TWRP / PBRP / OFRP / SHRP|
+## Lazy Action Recovery Builder |TWRP / PBRP / OFRP / SHRP|
 Compile your first custom recovery via Github Actions - with ldcheck setup. This workflow supports both TWRP or PBRP or OFRP or SHRP, you can use it with other custom recovery as well, but you have to modify the yaml config yourself.
 
 # How to Use
@@ -13,10 +13,9 @@ Compile your first custom recovery via Github Actions - with ldcheck setup. This
  * Build Target (boot, reecovery, vendorboot)
  * LDCHECK (path to your target binary file, ie. `system/bin/qseecomd`)
    - If you are building manually/locally and you want to use ldcheck for checking dependencies, visit [THIS](https://github.com/TeamWin/android_device_qcom_twrp-common/tree/android-11#using-ldcheck-to-find-dependencies) this for guide.
-  
+   
 ## Notes
-   - Initially, this workflow only supports up to 2 branches for manifest 11.0 to 12.1, if you build below 11.0, add it yourself.
-   - manifest 11.0 have included Android 9 and Android 10 encryption.
+   - Manifest 11.0 also supports Android 9 and Android 10 decryption.
    
 ## Credits
 - https://github.com/CaptainThrowback

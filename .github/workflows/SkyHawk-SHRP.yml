@@ -139,6 +139,11 @@ jobs:
         fi
       continue-on-error: true
 
+    - name: Install py-is-py2
+      run: |
+        sudo apt-get install python-is-python2
+      
+
     - name: Building Image 
       run: |
         cd android-recovery

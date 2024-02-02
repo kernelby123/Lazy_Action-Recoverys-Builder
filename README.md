@@ -16,7 +16,7 @@ Compile your first custom recovery via Github Actions - with ldcheck setup. This
    
 ## Notes
    - Manifest 11.0 also supports Android 9 and Android 10 decryption.
-   - This workflow supports Skyhawk Android 11 Recovery Branch v3.11.0 Now.  Update the Skyhawk source yourself if you want A14 branch support.
+   - This workflow supports Skyhawk Android 11 Recovery Branch v3.11.0 Now. Update the Skyhawk source yourself if you want A14 branch support.
 
 ## Credits
 - https://github.com/CaptainThrowback

@@ -136,6 +136,7 @@ jobs:
         body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
           Device: ${{ github.event.inputs.DEVICE_NAME }}
-          Target: ${{ github.event.inputs.BUILD_TARGET }}
+          Target: ${{ github.event.inputs.BUILD_TARGET }}.img
+          TREE: [Device Tree/Branch](${{ github.event.inputs.DEVICE_TREE_URL }}/tree/${{ github.event.inputs.DEVICE_TREE_BRANCH }})
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -22,7 +22,7 @@ on:
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
-        default: 'device/xiaomi/Archimedes'
+        default: 'device/xiaomi/cas'
       COMMON_TREE_URL:
         description: 'COMMON_TREE_URL (if no common tree, leave blank)'
         required: false
@@ -32,11 +32,11 @@ on:
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
-        default: 'Archimedes'
+        default: 'cas'
       MAKEFILE_NAME:
         description: 'MAKEFILE_NAME'
         required: true
-        default: 'omni_Archimedes'
+        default: 'omni_xas'
       BUILD_TARGET:
         description: 'BUILD_TARGET'
         required: true
